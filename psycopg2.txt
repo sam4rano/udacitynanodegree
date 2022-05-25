@@ -1,0 +1,102 @@
+Using psycopg2
+
+1. we import psycopg2
+import psycopg2
+
+2. create a connection
+
+create and assign your variable
+which i did in this case according to my hostname which
+has been created already using pgadmin
+database name which has also been created
+but can also create using createdb <databasename>
+
+username of the database which is postgres in
+this case
+password which i used for my database to secure import
+
+then i specified the default port which is generic in the
+the case of postgres
+
+hostname = "localhost"
+database = "demo"
+username = "postgres"
+pwd="S1a9m9u2$"
+port_id = 5432
+
+#set the var to none
+conn = None
+cur = None
+
+
+3. i established a connection
+and assigned to a variable
+
+var === conn
+
+# connect establish the connection between my set 
+variable
+
+    conn = psycopg2.connect(
+        host=hostname,
+        dbname=database,
+        user=username,
+        password=pwd,
+        port=5432
+
+    )
+
+4. # Open a cursor to perform database operations
+
+cur = conn.cursor()
+
+
+5. # Pass data to fill a query placeholders and let Psycopg perform
+# the correct conversion (no more SQL injections!)
+
+A variable is created to hold the sql command and passed to
+create_script = ''' CREATE TABLE IF NOT EXISTS employee (
+        id int PRIMARY KEY,
+        name varchar(40) NOT NULL,
+        salary int,
+        dept_id varchar(30)
+    )
+    '''
+cur.execute(create_script)
+
+
+ insert_script = 'INSERT INTO employee (id,name,salary,dept_id) VALUES(%s,%s,%s,%s)'
+    insert_value = [(1, 'James',1200,'D1'),(1, 'Cain',1700,'D2'),(1, 'Matt',1500,'D1')]
+    for record in insert_value:
+        cur.execute(insert_script, record)
+    cur.execute('SELECT * FROM employee')
+
+6. # Make the changes to the database persistent
+conn.commit()
+
+
+# Close communication with the database
+cur.close()
+conn.close()
+
+
+
+
+The main entry points of Psycopg are:
+
+The function connect() creates a new database session and returns a new connection instance.
+
+The class connection encapsulates a database session. It allows to:
+
+create new cursor instances using the cursor() method to execute database commands and queries,
+
+terminate transactions using the methods commit() or rollback().
+
+The class cursor allows interaction with the database:
+
+send commands to the database using methods such as execute() and executemany(),
+
+retrieve data from the database by iteration or using methods such as fetchone(), fetchmany(), fetchall().
+
+
+

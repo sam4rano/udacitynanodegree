@@ -1,0 +1,13 @@
+psql –U postgres
+Here, “postgres” represents the default 
+username for the PostgreSQL server. 
+During the installation of the PostgreSQL 
+server, and even after that, you can create
+ a new user. However, since we did not 
+ create any new user for our PostgreSQL 
+ server, we will have to access the 
+ PostgreSQL environment through the 
+ user-created by default during the 
+ installation. If you have also not 
+ created a new user, then your default 
+ username will also be “postgres”
