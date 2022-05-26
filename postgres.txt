@@ -11,3 +11,28 @@ server, and even after that, you can create
  installation. If you have also not 
  created a new user, then your default 
  username will also be “postgres”
+
+
+ psql -U postgres
+
+ changing from one database to another using command
+
+ psql -U postgres    #logon to the default database
+
+ \c 'servername'   # change the server to the new name with \c
+
+  \list   # list all the database on the server
+
+\! cls     # clear our screen on cmd
+
+\c 
+
+
+\dt check database table information
+
+remaining file on cmd
+inside the directory
+mv app.py myapp.py
+
+
+\d "tablename" to print out the properties of our table
