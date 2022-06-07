@@ -7,3 +7,21 @@ flask db init
 flask db migrate
 detects the model changes to be made, and creates a migration file with upgrade
 and downgrade logic set up
+ 
+$ flask db stamp head  #after making changes to the db
+$ flask db migrate  #migrating to the new changes
+
+$ flask db upgrade # upgrading the changes to reflect 
+
+
+$ flask db init
+create initial migrate directory structure
+
+
+$ flask db migrate
+detects the model changes to be made and creates a migration file with upgrade and downgrade logic set up
+#replaces use of db.create_all()
+
+
+$ flask db upgrade
+runs the upgrade command in the migration file, to apply the migration
