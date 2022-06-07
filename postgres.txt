@@ -36,3 +36,11 @@ mv app.py myapp.py
 
 
 \d "tablename" to print out the properties of our table
+
+
+(make sure you are in the todoapp folder)
+psql -U postgres {-i}
+dropdb todoapp
+createdb todoapp
+exit
+flask db migrate

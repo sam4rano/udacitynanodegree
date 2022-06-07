@@ -1,0 +1,9 @@
+create initial migrations directory structure
+
+
+flask db init
+
+
+flask db migrate
+detects the model changes to be made, and creates a migration file with upgrade
+and downgrade logic set up
