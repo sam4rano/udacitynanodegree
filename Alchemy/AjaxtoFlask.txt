@@ -1,0 +1,8 @@
+Takeaways
+Data requests are either synchronous or async (asynchronous)
+Async data requests are requests that get sent to the server and back to the client without a page refresh.
+Async requests (AJAX requests) use one of two methods:
+XMLHttpRequest
+Fetch (modern way)
+Using XMLHttpRequest
+
